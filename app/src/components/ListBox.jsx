@@ -3,6 +3,7 @@ import List from './List';
 import ListButtons from './ListButtons';
 import shuffle from '../utils/shuffle';
 import { ListControlProvider } from './ListControlContext';
+import AddItem from './AddItem';
 
 class ListBox extends Component {
     constructor(props) {
@@ -34,6 +35,10 @@ class ListBox extends Component {
         this.setState(prevState => ({list: shuffle(prevState.list)}))
     }
 
+    addItem = (item) => {
+        this.setState(prevState => ({list: prevState.list.concat(item)}))
+    }
+
     render() { 
         return (  
             <div>
@@ -44,10 +49,12 @@ class ListBox extends Component {
                         sorted: this.state.sorted,
                         toggleList: this.toggleList,
                         sortList: this.sortList,
-                        shuffleList: this.shuffleList,  
+                        shuffleList: this.shuffleList,
+                        addItem: this.addItem,  
                     }}
                 >
                     <ListButtons />
+                    <AddItem />
                     <List />
                 </ListControlProvider>
             </div>

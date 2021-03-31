@@ -1,0 +1,20 @@
+#list_order_buttons{
+    margin-bottom: 10px;
+}
+
+#add_item_box{
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color:#002066;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#add_item_box > h3 {
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+#add_item_box > input{
+
+}

@@ -13,7 +13,7 @@ class ListButtons extends Component {
         const {hidden, sorted, toggleList, sortList, shuffleList} = this.context
 
         return (
-            <div>
+            <div id="list_order_buttons">
                 <button 
                     className={hidden ? 'bg-red' : 'bg-green'} 
                     onClick={toggleList}
