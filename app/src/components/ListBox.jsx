@@ -21,9 +21,9 @@ class ListBox extends Component {
     }
 
     sortList = () => {
-        if(this.state.sorted === 'desc'){
-            this.state.list.sort()
-        } else {
+        this.state.list.sort()
+
+        if(this.state.sorted === 'asc'){
             this.state.list.reverse()
         }
 
