@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import ListControlContext from './ListControlContext';
 
-class ToggleListButton extends Component {
-    
+class ListButtons extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    static contextType = ListControlContext
+
     render() { 
-        const {hidden, sorted, toggleList, sortList, shuffleList} = this.props
+        const {hidden, sorted, toggleList, sortList, shuffleList} = this.context
 
         return (
             <div>
@@ -33,4 +40,4 @@ class ToggleListButton extends Component {
     }
 }
  
-export default ToggleListButton;
+export default ListButtons;

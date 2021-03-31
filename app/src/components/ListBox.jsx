@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import List from './List';
-import ToggleListButton from './ListButtons';
+import ListButtons from './ListButtons';
 import shuffle from '../utils/shuffle';
+import { ListControlProvider } from './ListControlContext';
 
 class ListBox extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class ListBox extends Component {
             hidden: true,
             sorted: 'desc',
             list: [
-                'Homer', 'Fred', 'Morty', 'Wayne','Cartman', 'Peter'
+                'Homer', 'Fred', 'George', 'Peter', 'Morty', 'Rick'
             ]
         }
     }
@@ -36,15 +37,19 @@ class ListBox extends Component {
     render() { 
         return (  
             <div>
-                <ToggleListButton 
-                    toggleList={this.toggleList} sortList={this.sortList} 
-                    shuffleList={this.shuffleList}
-                    hidden={this.state.hidden} sorted={this.state.sorted}
-                />
-                <List 
-                    list={this.state.list}
-                    hidden={this.state.hidden} sorted={this.state.sorted}
-                />
+                <ListControlProvider 
+                    value={{
+                        list:this.state.list,
+                        hidden: this.state.hidden,
+                        sorted: this.state.sorted,
+                        toggleList: this.toggleList,
+                        sortList: this.sortList,
+                        shuffleList: this.shuffleList,  
+                    }}
+                >
+                    <ListButtons />
+                    <List />
+                </ListControlProvider>
             </div>
         );
     }
